@@ -1,0 +1,58 @@
+{
+  "users": [
+    {
+      "name": "ami",
+      "email": "amil@test.com",
+      "password": "amic@1",
+      "id": 1
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 3
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 4
+    },
+    {
+      "name": "",
+      "email": "",
+      "password": "",
+      "id": 5
+    },
+    {
+      "name": "hgfdj",
+      "email": "f",
+      "password": 87,
+      "id": 6
+    },
+    {
+      "name": "hgfdj",
+      "email": "b",
+      "password": 3453,
+      "id": 7
+    },
+    {
+      "name": "Anil",
+      "email": "Anil@localhost.com",
+      "password": 23345,
+      "id": 8
+    },
+    {
+      "name": "ami",
+      "email": "ami@localhost.com",
+      "password": 3456,
+      "id": 9
+    }
+  ]
+}
