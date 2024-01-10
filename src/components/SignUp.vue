@@ -16,7 +16,7 @@
       <input id="password" name="password" type="number" v-model="password" />
     </div>
     <div>
-      <button @click="submitForm">Save Data</button>
+      <button @click="submitForm">Submit</button>
     </div>
   </form>
 </template>
@@ -34,7 +34,8 @@ export default {
   },
   methods: {
     async submitForm(event) {
-     event.preventDefault()
+      event.preventDefault();
+      alert("alert")
       console.log(
         "Username:",
         this.name,
@@ -51,13 +52,19 @@ export default {
           password: this.password,
         });
         if (result.status === 201) {
-          localStorage.setItem("user-info", JSON.stringify(result.data)); 
+          localStorage.setItem("user-info", JSON.stringify(result.data));
           this.$router.push({ name: "HomePage" });
         }
       } catch (error) {
         console.error("Error:", error);
       }
     },
+  },
+  mounted() {
+    let user = localStorage.getItem("user-info");
+    if (user) {
+      this.$router.push({ name: "HomePage" });
+    }
   },
 };
 </script>

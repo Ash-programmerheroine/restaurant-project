@@ -119,6 +119,24 @@
       "email": "ash@gmail.com",
       "password": 7986,
       "id": 20
+    },
+    {
+      "name": "ami",
+      "email": "ami@localhost.com",
+      "password": 24354,
+      "id": 21
+    },
+    {
+      "name": "hgfdj",
+      "email": "b",
+      "password": 56,
+      "id": 22
+    },
+    {
+      "name": "ami",
+      "email": "amil@test.com",
+      "password": "amic@1",
+      "id": 23
     }
   ]
 }
