@@ -1,9 +1,8 @@
 <template>
-    
-  <img alt="logo" class="logo" src="../assets/restaurant-logo.png">
-   
+  <img alt="logo" class="logo" src="../assets/restaurant-logo.png" />
+
   <h1>Sign Up</h1>
-  <form >
+  <form>
     <div class="form-control">
       <label for="user-name">Your Name</label>
       <input id="user-name" name="user-name" type="text" v-model="name" />
@@ -23,36 +22,49 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "SignUp",
-  data(){
-    return{
-        name: '',
-        email: '',
-        password: ''
-  }},
-  methods:{
-    async submitForm(){
-      console.log('Username :' + this.name, 'Useremail :' + this.email, 'Userpass :' + this.password);
-      
-      let result = await axios.post("http://localhost:9000/users",{
-        name: this.name,
-        email: this.email,
-        password: this.password,
-      });
-      console.warn(result);
-      if(result.status == 201){
-        alert("SignUp Done")
+  data() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    async submitForm(event) {
+     event.preventDefault()
+      console.log(
+        "Username:",
+        this.name,
+        "User email:",
+        this.email,
+        "User password:",
+        this.password
+      );
+
+      try {
+        let result = await axios.post("http://localhost:9000/users", {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+        });
+        if (result.status === 201) {
+          localStorage.setItem("user-info", JSON.stringify(result.data)); 
+          this.$router.push({ name: "HomePage" });
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
-      localStorage.setItem("user-info", JSON.stringify(result.data))
-    }
-  }
+    },
+  },
 };
 </script>
-<style >
-.logo{
-  width:80px;
+
+<style>
+.logo {
+  width: 80px;
 }
 form {
   margin: 2rem auto;
@@ -88,30 +100,30 @@ select {
   width: auto;
 }
 
-input[type='checkbox'],
-input[type='radio'] {
+input[type="checkbox"],
+input[type="radio"] {
   display: inline-block;
   width: auto;
   margin-right: 1rem;
 }
 
-input[type='checkbox'] + label,
-input[type='radio'] + label {
+input[type="checkbox"] + label,
+input[type="radio"] + label {
   font-weight: normal;
 }
-input{
-    width: 300px;
-    height: 40px;
-    padding-left: 20px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid#69052A;
+input {
+  width: 300px;
+  height: 40px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid#69052A;
 }
 button {
   font: inherit;
-  border: 1px solid #69052A;
-  background-color: #FFC100;
+  border: 1px solid #69052a;
+  background-color: #ffc100;
   color: #fff;
   cursor: pointer;
   padding: 0.75rem 2rem;
@@ -120,7 +132,7 @@ button {
 
 button:hover,
 button:active {
-  border-color: #69052A;
-  background-color: #69052A;
+  border-color: #69052a;
+  background-color: #69052a;
 }
 </style>
