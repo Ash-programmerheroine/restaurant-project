@@ -1,7 +1,10 @@
 <template>
-  <img alt="logo" class="logo" src="../assets/restaurant-logo.png" />
+  <div id="sign-up-logo">
+    <img alt="logo" class="logo" src="../assets/restaurant-logo.png" />
 
   <h1>Sign Up</h1>
+  <router-link to="/log-in">If registered,Login</router-link>
+  </div>
   <form>
     <div class="form-control">
       <label for="user-name">Your Name</label>
@@ -69,13 +72,16 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .logo {
-  width: 80px;
+  width: 60px;
+}
+#sign-up-logo{
+    text-align: center;
 }
 form {
   margin: 2rem auto;
-  max-width: 20rem;
+  max-width: 24rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 2rem;

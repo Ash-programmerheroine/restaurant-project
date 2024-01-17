@@ -1,7 +1,9 @@
 <template>
-  <img alt="logo" class="logo" src="../assets/restaurant-logo.png" />
+  <div >
+    <img alt="logo" class="logo" src="../assets/restaurant-logo.png" />
 
   <h1>Login</h1>
+  </div>
   <form>
     <div class="form-control">
       <input
@@ -24,8 +26,9 @@
     <div>
       <button @click="loggingIn">Submit</button>
     </div>
+    <router-link to="/sign-up">Sign Up</router-link>
   </form>
-  <router-link to="/sign-up">Sign Up</router-link>
+  
 </template>
 
 <script>
