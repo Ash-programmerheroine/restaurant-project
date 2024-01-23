@@ -3,7 +3,7 @@
     {
       "name": "ami",
       "email": "amil@test.com",
-      "password": "amic@1",
+      "password": "34634",
       "id": 1
     },
     {
@@ -138,5 +138,13 @@
       "password": "amic@1",
       "id": 23
     }
+  ],
+  "restaurant":[
+    {
+      "id":1,
+      "name": "KFC",
+      "address": "mohammadpur",
+      "contact": 2222
+  }
   ]
 }
