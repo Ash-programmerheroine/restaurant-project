@@ -145,6 +145,12 @@
       "name": "KFC",
       "address": "mohammadpur",
       "contact": 2222
-  }
+  },
+  {
+    "id":2,
+    "name": "Dominos",
+    "address": "sat masjid road",
+    "contact": 3333
+}
   ]
 }
