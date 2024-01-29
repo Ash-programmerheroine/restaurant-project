@@ -6,7 +6,7 @@
    <div>
     <router-link to="/">Home</router-link>
     <router-link  to="/add-page">Add Restaurant</router-link>
-    <router-link  to="/update-page">Update Restaurant</router-link>
+
     <a @click="logOut" href="">Logout</a>
    </div>
   </div>

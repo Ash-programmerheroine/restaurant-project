@@ -1,40 +1,71 @@
 <template>
-    <header-cmp></header-cmp>
+  <header-cmp></header-cmp>
 
-   <h1>Hello, Welcome To Add Restaurant Page</h1> 
+  <h1>Hello, Welcome To Add Restaurant Page</h1>
   <form>
-    <input type="text" placeholder="Enter your name" v-model="restaurant.name" name="name">
-    <input type="text" placeholder="Enter your address" v-model="restaurant.address" name="address">
-    <input type="text" placeholder="Enter your contact" v-model="restaurant.contact" name="contact">
+    <input
+      type="text"
+      placeholder="Enter your name"
+      v-model="restaurant.name"
+      name="name"
+    />
+    <input
+      type="text"
+      placeholder="Enter your address"
+      v-model="restaurant.address"
+      name="address"
+    />
+    <input
+      type="text"
+      placeholder="Enter your contact"
+      v-model="restaurant.contact"
+      name="contact"
+    />
     <button type="button" @click="addRestaurant">Add New Restaurant</button>
-    </form>
+  </form>
 </template>
-<script >
-import HeaderCmp from './HeaderCmp.vue';
-export default{
-    name:'AddPage',
-    components:{
-        HeaderCmp,
-    },
-     data() {
+<script>
+import axios from "axios";
+import HeaderCmp from "./HeaderCmp.vue";
+export default {
+  name: "AddPage",
+  components: {
+    HeaderCmp,
+  },
+  data() {
     return {
-      restaurant:{
+      restaurant: {
         name: "",
-      address: "",
-      contact: "",
-      }
+        address: "",
+        contact: "",
+      },
     };
   },
-  methods:{
-    addRestaurant(){
-        console.warn(this.restaurant)
+  methods: {
+    async addRestaurant() {
+     
+      try {
+        let result = await axios.post("http://localhost:9000/restaurant", {
+          name: this.restaurant.name,
+          address: this.restaurant.address,
+          contact: this.restaurant.contact,
+
+        });
+        console.log(result)
+        if (result.status === 201) {
+          
+          this.$router.push({ name: "HomePage" });
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    },
+  },
+  mounted() {
+    let user = localStorage.getItem("user-info");
+    if (!user) {
+      this.$router.push({ name: "SignUp" });
     }
   },
-    mounted(){
-    let user = localStorage.getItem('user-info');
-    if(!user){
-        this.$router.push({ name: "SignUp" });
-    }
-  }
 };
 </script>
